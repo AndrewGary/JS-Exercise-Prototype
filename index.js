@@ -94,10 +94,21 @@ function Car(model, milesPerGallon) {
   this.odometer = 0;
 }
 
+Car.prototype.drive = function(distance){
+  this.odometer += distance;
+  this.tank -= (distance / this.milesPerGallon).toFixed(2);
+}
+
 Car.prototype.fill = function (gallons) {
   this.tank += gallons;
 }
 
+const myCar = new Car('Tesla', 30);
+console.log(myCar);
+myCar.fill(25);
+console.log(myCar);
+myCar.drive(120);
+console.log(myCar);
 
 /*
   TASK 3
