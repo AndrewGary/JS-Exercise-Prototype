@@ -107,20 +107,22 @@ Car.prototype.fill = function (gallons) {
         + Should return a string "Playing with x", x being the favorite toy.
 */
 function Baby(name, age, favoriteToy) {
-  Person.call(name, age);
+  Person.call(this, name, age);
   this.favoriteToy = favoriteToy;
 }
 Baby.prototype = Object.create(Person.prototype);
-const baker = new Baby('Baker', .5, 'moonjacks');
-console.log('baker: ' + baker);
+// const baker = new Baby('Baker', .5, 'moonjacks');
+Baby.prototype.play = function(){
+  return `Playing with ${this.favoriteToy}`;
+}
 
 /* 
   TASK 4
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. If a function has a global scope this will refer to the window object.
+  2. When a function is called using '.' this will refer to the object before '.'
+  3. When a object is created using a constructor function this refers to that instace of the object.
+  4. When using call or apply you need to pass in an argument that you want this to point to.
 */
 
 
